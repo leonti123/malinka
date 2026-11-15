@@ -911,7 +911,7 @@ const REVS=[{"n":"Анастасия Ч.","d":"28 октября, ВКонтак
 
  // ===== данные сайта: правки из режима мастера =====
  // MASTER_URL: веб-приложение Apps Script (вход по паролю, сохранение в GitHub). Пусто = демо, правки только в этом браузере.
- const MASTER_URL = "";
+ const MASTER_URL = "https://script.google.com/macros/s/AKfycbw5GqZS4lRk3SNVe7hKUg6d9DIWfyOZKNp1AMlLDHKY1bntAM_TxG6YwaqGHh3WFwDO7A/exec";
  const DEMO_KEY = "ml-demo-v1";
  let D = window.SITE_DATA || null;
  try { const x = JSON.parse(sessionStorage.getItem("ml-pub") || "null"); if (x && (x.rev || 0) > ((D && D.rev) || 0)) D = x; } catch (e) {}
