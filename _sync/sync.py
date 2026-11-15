@@ -51,6 +51,13 @@ def clean(text):
     t = re.sub(r'https?://\S+|vk\.(?:com|ru)/\S+', '', t)
     t = re.sub(r'#\S+', '', t)
     t = EMOJI.sub('', t)
+    # хвост с контактами: «Мой каталог: Для заказа пишите: @... или 8-911-...»
+    t = re.split(r'(?i)\b(?:мой каталог|каталог:|для заказа|для заказов|заказать можно|по вопросам|пишите в|пишите:|звоните|телефон для)', t)[0]
+    t = re.sub(r'@\S+', '', t)
+    t = re.sub(r'(?:\+7|8)[\s(-]*\d{3}[\s)-]*\d{3}[\s-]*\d{2}[\s-]*\d{2}', '', t)
+    t = re.sub(r'(\d)\s*(?:руб(?:лей|\.)?|р\.)(?=[\s,.!;)]|$)', r'\1 ₽', t)
+    t = re.sub(r'(\d)(кг|гр|г|см)\b', r'\1 \2', t)
+    t = re.sub(r'(\d)(\d{3}) ₽', r'\1 \2 ₽', t)
     t = re.sub(r'\s+', ' ', t).strip(' .,;:-–—')
     return t
 
@@ -83,8 +90,10 @@ def main():
         o = over.get(pid, {})
         text = clean(p.get('text', ''))
         t = o.get('t') or short(text) or 'Новая работа в группе'
-        alt = o.get('alt') or (' '.join(text.split()[:7]) if text else 'Работа мастерской Малинка')
+        alt = o.get('alt') or (re.split(r'[.!?]', text)[0][:80] if text else 'Работа мастерской Малинка')
         lt = time.gmtime(p['date'] + 3 * 3600)  # время Петербурга
+        if not o.get('t') and len(t) > 3 and not t.endswith(('.', '!', '?', '…')):
+            t += '.'
         f = os.path.join(IMG, pid + '.jpg')
         if not os.path.exists(f):
             im = ImageOps.exif_transpose(Image.open(io.BytesIO(fetch(biggest(ph[0]['sizes']))))).convert('RGB')
