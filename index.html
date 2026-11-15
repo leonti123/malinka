@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Зефирные букеты на заказ в Санкт-Петербурге — «Малинка» Оксаны Янченко</title>
 <meta name="description" content="Букеты из зефира на натуральных ягодах с начинкой в каждом цветке: от 1 300 ₽, коробочки от 1 200 ₽, комплименты от 350 ₽. Шоколадные наборы, торты и пирожные. Самовывоз у метро «Проспект Просвещения» и «Гражданский проспект».">
-<meta name="robots" content="noindex">
+<link rel="canonical" href="https://malinka-zefir.ru/">
+<meta property="og:url" content="https://malinka-zefir.ru/">
 <script>document.write('<script src="data.js?t=' + Math.floor(Date.now() / 6e4) + '"><\/script>')</script>
 <meta name="theme-color" content="#FFF8F4">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="«Малинка»: зефирные букеты и сладкие подарки в Петербурге">
 <meta property="og:description" content="Зефир на ягодах, которые Оксана собирает сама. Начинка в каждом цветке, сахара на 30% меньше, чем в магазинном.">
-<meta property="og:image" content="https://leonti123.github.io/malinka/img/og.jpg">
+<meta property="og:image" content="https://malinka-zefir.ru/img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="preload" href="fonts/ye-400-n-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/go-400-700-n-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
@@ -517,7 +518,6 @@ dialog::backdrop{background:rgba(42,10,24,.62);backdrop-filter:blur(3px)}
  <symbol id="logo" viewBox="0 0 40 44"><path d="M20 13.5C17.5 5 9 6 6 7c2.5 4.6 7.8 6.6 14 6.5Zm0 0C22.5 5 31 6 34 7c-2.5 4.6-7.8 6.6-14 6.5Z" fill="#4C8A3A"/><path d="M20 13.5V7" stroke="#4C8A3A" stroke-width="2" stroke-linecap="round"/><g fill="#C8235A"><circle cx="13.5" cy="19.5" r="4.6"/><circle cx="20" cy="18" r="4.6"/><circle cx="26.5" cy="19.5" r="4.6"/><circle cx="10.5" cy="26" r="4.6"/><circle cx="17" cy="25" r="4.6"/><circle cx="23" cy="25" r="4.6"/><circle cx="29.5" cy="26" r="4.6"/><circle cx="13.5" cy="31.5" r="4.6"/><circle cx="20" cy="31" r="4.6"/><circle cx="26.5" cy="31.5" r="4.6"/><circle cx="16.5" cy="37" r="4.4"/><circle cx="23.5" cy="37" r="4.4"/><circle cx="20" cy="41" r="3.2"/></g><g fill="#fff" opacity=".45"><circle cx="12.3" cy="18.2" r="1.3"/><circle cx="18.8" cy="16.7" r="1.3"/><circle cx="9.3" cy="24.7" r="1.3"/><circle cx="15.8" cy="23.7" r="1.3"/><circle cx="12.3" cy="30.2" r="1.3"/><circle cx="18.8" cy="29.7" r="1.3"/><circle cx="15.3" cy="35.7" r="1.2"/></g></symbol>
 </svg>
 
-<div class="mock">Макет сайта для группы «Малинка». После согласования подключим своё имя сайта, а заявки будут приходить вам в сообщения</div>
 
 <header class="hd" id="hd">
  <div class="wrap hd-in">
@@ -1284,7 +1284,7 @@ const REVS=[{"n":"Анастасия Ч.","d":"28 октября, ВКонтак
   let ok = false;
   try {
    const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
-    body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет malinka (Малинка, зефирные букеты)", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
+    body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Сайт malinka-zefir.ru", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
    ok = (await res.json()).ok === true;
   } catch (x) {}
   submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
