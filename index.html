@@ -1271,7 +1271,7 @@ const REVS=[{"n":"Анастасия Ч.","d":"28 октября, ВКонтак
  }
  const orderText = () => ["Здравствуйте! Хочу сделать заказ.", ...details(), `Имя: ${form.name.value.trim()}, тел. ${form.phone.value}`, form.comment.value.trim() && "Пожелания: " + form.comment.value.trim()].filter(Boolean).join("\n");
  const err = $("err"), submitBtn = $("submit");
- const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+ const LEAD_URL = "https://script.google.com/macros/s/AKfycbwzkM-62BBMe6V7RBaiVzR39wIl8Qk1AeVX4TKxyyR__WS6TQ_eunqTmQN4f7FWyNgl/exec";
  form.addEventListener("submit", async e => {
   e.preventDefault();
   if (!picked.size && !checked("kind").length && !form.comment.value.trim()) { form.querySelector("[name=kind]").focus(); return err.textContent = "Отметьте, что нужно, или опишите заказ в пожеланиях"; }
